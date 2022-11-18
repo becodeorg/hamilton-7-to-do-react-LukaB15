@@ -1,3 +1,6 @@
 .todoapp-list{
     margin-left: 20px;
 }
+li{
+    list-style: none;
+}
