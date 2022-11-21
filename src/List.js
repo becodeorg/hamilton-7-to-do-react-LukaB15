@@ -1,16 +1,15 @@
 import React, { useState } from "react";
 import './List.css';
 
-export default function List() {
-    const initialTodos = [{id:1, name:"Todo1",complete:true}];
-    const [todos, setTodos] = useState(initialTodos);
 
+
+export default function List({todos}) {
 
   return (
     <ul>
-    {todos.map((todo) => (
-      <li key={todo}>
-        <input type="checkbox" defaultChecked={todo.complete}  /> {todo.name} 
+    {todos.map((todos) => (
+      <li key={todos.id}>
+        <input type="checkbox" defaultChecked={todos.complete}   /> {todos.name} 
       </li>
     ))}
   </ul>

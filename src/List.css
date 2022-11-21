@@ -1,6 +1,9 @@
-.todoapp-list{
-    margin-left: 20px;
-}
+
 li{
     list-style: none;
+    font-family: 'Sono', sans-serif;
+}
+ul{
+    margin-bottom: 50px;
+    margin-top: 20px;
 }
