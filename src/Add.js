@@ -17,7 +17,7 @@ function Add({value, setstate}) {
             setstate(prevTodos =>{
                   return [...prevTodos, {id:uuidv4(), name:inputElement , complete:false}]
             })
-            inputElement = null;
+            inputRef.current.value = null;
           }
 
     return (
