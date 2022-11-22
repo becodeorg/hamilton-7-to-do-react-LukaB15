@@ -1,22 +1,35 @@
-import React from "react";
-import './List.css';
+import React from 'react';
+import './Todo.css';
 
 
 
-export default function todo({todo,toggleTodo}) {
+export default function Todo({todo,toggleTodo,setTodos,returnId}) {
 
-  // const [todos, setTodos] = useState([]);
   function handleTodoClick(){
     toggleTodo(todo.id)
    console.log(todo.name);
   }
+//   function handleEditing(){
+//     console.log("oui")
+//   }
 
+
+
+
+
+const handledelete=(id)=>{ 
+
+    returnId(id);
+}
 
   return (
  
     
       <li key={todo.id}>
-        <input type="checkbox" defaultChecked={todo.complete} onChange={handleTodoClick}  /> {todo.name} 
+        <input className='check' type="checkbox" defaultChecked={todo.complete} onChange={handleTodoClick}  /> <p>{todo.name} </p>
+        
+        <button className='delete' onClick={()=>handledelete(todo.id)}> Delete</button>
+       
       </li>
    
   

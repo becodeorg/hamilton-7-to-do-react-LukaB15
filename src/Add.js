@@ -14,7 +14,7 @@ function Add({setstate, localkey}) {
           
             if (inputElement === "") return
             setstate(prevTodos =>{
-                  localStorage.setItem(localkey, JSON.stringify([...prevTodos, {id:uuidv4(), name:inputElement , complete:false}]));
+                  // localStorage.setItem(localkey, JSON.stringify([...prevTodos, {id:uuidv4(), name:inputElement , complete:false}]));
                   return [...prevTodos, {id:uuidv4(), name:inputElement , complete:false}]
             })
             

@@ -18,11 +18,18 @@ function App() {
   // }
 
   useEffect(() => {
-    const storedTodos = JSON.parse(localStorage.getItem(LOCAL_STORAGE_KEY))
+    const storedTodos = JSON.parse(localStorage.getItem(LOCAL_STORAGE_KEY));
     if(storedTodos) {
       setTodos(storedTodos)
     }
   },[])
+
+  useEffect(() => {
+    
+    if(todos.length > 0) {
+      localStorage.setItem(LOCAL_STORAGE_KEY, JSON.stringify(todos));
+    }
+  },[todos])
 
   function toggleTodo(id){
     // Créer nouvelle liste de Todo en créant une copie de Todo car on ne travaille jamais sur l'original-> Tjrs créer une copie, la modifier puis remplacer
@@ -33,7 +40,9 @@ function App() {
       localStorage.setItem(LOCAL_STORAGE_KEY, JSON.stringify(newTodos));
       
   }
-
+  // const onRemove = id => e => {
+  //   setTodos(todos.filter(todo => todo.id !== id));
+  // };
   
 
   return (
@@ -44,9 +53,9 @@ function App() {
     
       </header>
     <main>    
-        <Add  setstate={setTodos} localkey={ LOCAL_STORAGE_KEY} />
-        <List todos={todos} toggleTodo={toggleTodo}/>
-        <Clear todos={todos} setstate={setTodos} />
+        <Add  setstate={setTodos} localkey={LOCAL_STORAGE_KEY} />
+        <List todos={todos} toggleTodo={toggleTodo} setTodos={setTodos}  />
+        <Clear setstate={setTodos} todos={todos} />
       </main>
     </>
      

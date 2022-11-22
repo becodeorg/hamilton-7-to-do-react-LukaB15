@@ -5,6 +5,7 @@
     border-bottom: 1px solid black;
     margin-top: 20px;
     font-family: 'Sono', sans-serif;
+  
 }
 .add::placeholder{
     text-align: center;
@@ -18,10 +19,13 @@
     margin-top: 20px;
     padding: 10px;
     font-family: 'Sono', sans-serif;
+    font-size: 20px;
+    transition: 0.3s ease-in-out;
+    border-radius: 5%;
 }
 .submit:hover{
     background-color: white;
     color: rgba(255,177,0,1);
     border: 1px solid rgba(255,177,0,1);
-
+    transition: 0.3s ease-in-out;
 }
