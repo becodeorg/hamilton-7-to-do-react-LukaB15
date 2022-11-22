@@ -6,9 +6,13 @@
     margin-top: 20px;
     font-family: 'Sono', sans-serif;
 }
+.add::placeholder{
+    text-align: center;
+    font-size: 18px;
+}
 
 .submit{
-    background-color: rgb(108,172,255);
+    background-color: rgba(255,177,0,1);
     color: white;
     border: 1px solid white;
     margin-top: 20px;
@@ -17,7 +21,7 @@
 }
 .submit:hover{
     background-color: white;
-    color: rgb(108,172,255);
-    border: 1px solid rgb(108,172,255);
+    color: rgba(255,177,0,1);
+    border: 1px solid rgba(255,177,0,1);
 
 }

@@ -1,9 +1,8 @@
-import React, {useRef, useState} from 'react';
+import React, {useRef} from 'react';
 import './Add.css';
-import List from './List';
 import { v4 as uuidv4 } from 'uuid';
 
-function Add({value, setstate}) {
+function Add({setstate, localkey}) {
 
       const inputRef = useRef();
      
@@ -12,11 +11,13 @@ function Add({value, setstate}) {
            
             const inputElement = inputRef.current.value;
             // console.log(inputElement.value);
-            value(inputElement)
+          
             if (inputElement === "") return
             setstate(prevTodos =>{
+                  localStorage.setItem(localkey, JSON.stringify([...prevTodos, {id:uuidv4(), name:inputElement , complete:false}]));
                   return [...prevTodos, {id:uuidv4(), name:inputElement , complete:false}]
             })
+            
             inputRef.current.value = null;
           }
 

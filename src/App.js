@@ -1,22 +1,39 @@
-import React, { useState } from "react";
+import React, { useState,useEffect } from "react";
 import './App.css';
 import Add from './Add';
 import List from './List';
-import { v4 as uuidv4 } from 'uuid';
+import Clear from "./Clear";
 
 
-
+const LOCAL_STORAGE_KEY = 'todoApp.todos'
 
 function App() {
 
-  // const initialTodos = [{id:uuidv4(),name:"Todo1",complete:true},{id:uuidv4(),name:"Todo2",complete:false}];
-  const [todos, setTodos] = useState([]);
+   const [todos, setTodos] = useState([]);
 
-  const [data, setData] = useState("");
+  // const [data, setData] = useState([]);
 
-  const value = (person) =>{
-    setData(person);
+  // const value = (person) => {
+  //   setData(person);
+  // }
+
+  useEffect(() => {
+    const storedTodos = JSON.parse(localStorage.getItem(LOCAL_STORAGE_KEY))
+    if(storedTodos) {
+      setTodos(storedTodos)
+    }
+  },[])
+
+  function toggleTodo(id){
+    // Créer nouvelle liste de Todo en créant une copie de Todo car on ne travaille jamais sur l'original-> Tjrs créer une copie, la modifier puis remplacer
+      const newTodos = [...todos]
+      const todo = newTodos.find(todo => todo.id === id)
+      todo.complete = !todo.complete
+      setTodos(newTodos)
+      localStorage.setItem(LOCAL_STORAGE_KEY, JSON.stringify(newTodos));
+      
   }
+
   
 
   return (
@@ -27,8 +44,9 @@ function App() {
     
       </header>
     <main>    
-        <Add value={value} setstate={setTodos} />
-        <List todos={todos}/>
+        <Add  setstate={setTodos} localkey={ LOCAL_STORAGE_KEY} />
+        <List todos={todos} toggleTodo={toggleTodo}/>
+        <Clear todos={todos} setstate={setTodos} />
       </main>
     </>
      

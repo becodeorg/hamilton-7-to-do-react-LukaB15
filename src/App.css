@@ -54,9 +54,10 @@ body{
   align-items: center;
   background-color: #F3FAFA;
   height: 900px;
+  background-image: url(../public/3506328.jpg);
 }
 #root{
-  background-color: white;
+  /* background-image: url(../public/3506328.jpg); */
   margin-top: 100px;
 }
 h1{
@@ -69,8 +70,8 @@ h1{
 header{
     display: flex;
     justify-content: center;
-    background: rgb(108,172,255);
-    background: linear-gradient(180deg, rgba(108,172,255,1) 0%, rgba(141,235,255,1) 100%);
+    background: rgb(255,177,0);
+    background: linear-gradient(180deg, rgba(255,177,0,0.9267682072829132) 65%, rgba(255,177,0,1) 100%);
     padding-top: 50px;
     padding-bottom: 80px;
     border-radius: 20px 20px 20px 20px;

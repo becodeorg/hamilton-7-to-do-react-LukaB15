@@ -1,19 +1,20 @@
-import React, { useState } from "react";
+import React from "react";
 import './List.css';
+import Todo from './Todo';
 
 
+export default function List({todos,toggleTodo}) {
 
-export default function List({todos}) {
-
-  return (
-    <ul>
-    {todos.map((todos) => (
-      <li key={todos.id}>
-        <input type="checkbox" defaultChecked={todos.complete}   /> {todos.name} 
-      </li>
-    ))}
+ return (
+  <ul>
+    {todos.map((todo) => {
+      return <Todo key={todo.id} toggleTodo={toggleTodo} todo={todo} />
+    })}
   </ul>
-  );
+    
+
+  )
+
 }
   
  
